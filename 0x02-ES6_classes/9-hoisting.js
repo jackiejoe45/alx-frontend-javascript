@@ -1,5 +1,3 @@
-/* Fix this code and make it work. */
-
 class HolbertonClass {
   constructor(year, location) {
     this._year = year;

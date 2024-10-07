@@ -1,20 +1,9 @@
-/*
-Implement a class named HolbertonCourse:
-
-Constructor attributes:
-name (String)
-length (Number)
-students (array of Strings)
-Make sure to verify the type of attributes during object creation
-Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
-Implement a getter and setter for each attribute.
-*/
-
+// Holberton Course
 export default class HolbertonCourse {
   constructor(name = '', length = 0, students = []) {
-    this._name = name;
-    this._length = length;
-    this._students = students;
+    this.name = name;
+    this.length = length;
+    this.students = students;
   }
 
   get name() {
@@ -37,10 +26,6 @@ export default class HolbertonCourse {
       throw TypeError('Length must be a number');
     }
     this._length = newLength;
-  }
-
-  get students() {
-    return this._students;
   }
 
   get students() {
