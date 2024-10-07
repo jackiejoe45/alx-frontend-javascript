@@ -11,7 +11,7 @@ Implement a getter and setter for each attribute.
 */
 
 export default class HolbertonCourse {
-  constructor(name, length, students) {
+  constructor(name = '', length = 0, students = []) {
     this._name = name;
     this._length = length;
     this._students = students;
@@ -21,23 +21,42 @@ export default class HolbertonCourse {
     return this._name;
   }
 
-  set name(value) {
-    this._name = value;
+  set name(newName) {
+    if (typeof newName !== 'string') {
+      throw new TypeError('Name must be a string');
+    }
+    this._name = newName;
   }
 
   get length() {
     return this._length;
   }
 
-  set length(value) {
-    this._length = value;
+  set length(newLength) {
+    if (typeof newLength !== 'number') {
+      throw TypeError('Length must be a number');
+    }
+    this._length = newLength;
   }
 
   get students() {
     return this._students;
   }
 
-  set students(value) {
-    this._students = value;
+  get students() {
+    return this._students;
+  }
+
+  set students(newStudents) {
+    if (typeof newStudents === 'object') {
+      for (const student in newStudents) {
+        if (typeof student !== 'string') {
+          throw new TypeError('Students must be an array of strings');
+        }
+      }
+    } else {
+      throw new TypeError('Students must be an array of strings');
+    }
+    this._students = newStudents;
   }
 }
